@@ -5,15 +5,15 @@
    date 参数是合法的日期表达式。expr 参数是您希望添加的时间间隔。
 
 ```mysql
-DATE_ADD('2019-11-12',INTERVAL 10 MICROSECOND)   --增加10微秒
-DATE_ADD('2019-11-12',INTERVAL 10 SECOND) --增加10秒
-DATE_ADD('2019-11-12',INTERVAL 10 MINUTE) --增加10分钟
-DATE_ADD('2019-11-12',INTERVAL 10 HOUR) --增加10小时
-DATE_ADD('2019-11-12',INTERVAL 10 DAY) --增加10天
-DATE_ADD('2019-11-12',INTERVAL 1 WEEK) --增加一周
-DATE_ADD('2019-11-12',INTERVAL 10 MONTH) --增加10个月
-DATE_ADD('2019-11-12',INTERVAL 1 QUARTER) --增加3个月
-DATE_ADD('2019-11-12',INTERVAL 10 YEAR) --增加10个月
+DATE_ADD('2019-11-12',INTERVAL 10 MICROSECOND)  --增加10微秒
+DATE_ADD('2019-11-12',INTERVAL 10 SECOND) 	    --增加10秒
+DATE_ADD('2019-11-12',INTERVAL 10 MINUTE) 	    --增加10分钟
+DATE_ADD('2019-11-12',INTERVAL 10 HOUR)         --增加10小时
+DATE_ADD('2019-11-12',INTERVAL 10 DAY)          --增加10天
+DATE_ADD('2019-11-12',INTERVAL 1 WEEK)          --增加一周
+DATE_ADD('2019-11-12',INTERVAL 10 MONTH)        --增加10个月
+DATE_ADD('2019-11-12',INTERVAL 1 QUARTER)       --增加3个月
+DATE_ADD('2019-11-12',INTERVAL 10 YEAR)         --增加10个月
 ```
 
 3. DATEDIFF(date1,date2) 函数返回两个日期之间的天数。
@@ -29,10 +29,10 @@ SELECT DATEDIFF('2008-11-30','2008-11-28')  DiffDate;
    date 参数是合法的日期。format 规定日期/时间的输出格式。
 
 ```mysql
-SELECT NOW() --返回当前的日期和时间
-CURDATE() --返回当前的日期
-CURTIME() --返回当前的时间
-DATE(NOW()) --提取返回当前的日期
+SELECT NOW()             --返回当前的日期和时间
+CURDATE()                --返回当前的日期
+CURTIME()                --返回当前的时间
+DATE(NOW())              --提取返回当前的日期
 DATE_FORMAT(NOW(),'%a')  --缩写星期名
 DATE_FORMAT(NOW(),'%b')  --缩写月名
 DATE_FORMAT(NOW(),'%c')  --月数值
@@ -69,16 +69,16 @@ DATE_FORMAT(NOW(),'%x')  --年其中的星期一是周的第一天4位与%v使�
 
 ```mysql
 EXTRACT(SECOND_MICROSECOND FROM NOW())   --获取秒到毫秒
-EXTRACT(MINUTE_MICROSECOND FROM NOW())     --获取分到毫秒
-EXTRACT(MINUTE_SECOND FROM NOW())                 --获取分到秒
-EXTRACT(HOUR_MICROSECOND FROM NOW())        --获取小时到毫秒
-EXTRACT(HOUR_SECOND FROM NOW())                    --获取小时到秒
-EXTRACT(HOUR_MINUTE FROM NOW())                      --获取小时到分
-EXTRACT(DAY_MICROSECOND FROM NOW())            --获取天到毫秒
-EXTRACT(DAY_SECOND FROM NOW())                        --获取天到秒
-EXTRACT(DAY_MINUTE FROM NOW())                         --获取天到分
-EXTRACT(DAY_HOUR FROM NOW())                            --获取天到小时
-EXTRACT(YEAR_MONTH FROM NOW())                       --获取年到月
+EXTRACT(MINUTE_MICROSECOND FROM NOW())   --获取分到毫秒
+EXTRACT(MINUTE_SECOND FROM NOW())        --获取分到秒
+EXTRACT(HOUR_MICROSECOND FROM NOW())     --获取小时到毫秒
+EXTRACT(HOUR_SECOND FROM NOW())          --获取小时到秒
+EXTRACT(HOUR_MINUTE FROM NOW())          --获取小时到分
+EXTRACT(DAY_MICROSECOND FROM NOW())      --获取天到毫秒
+EXTRACT(DAY_SECOND FROM NOW())           --获取天到秒
+EXTRACT(DAY_MINUTE FROM NOW())           --获取天到分
+EXTRACT(DAY_HOUR FROM NOW())             --获取天到小时
+EXTRACT(YEAR_MONTH FROM NOW())           --获取年到月
 ```
 
 6. CONCAT(str1,str2,…)  返回结果为连接参数产生的字符串。如有任何一个参数为NULL ，则返回值为 NULL。
