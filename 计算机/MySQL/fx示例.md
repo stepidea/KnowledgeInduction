@@ -1,7 +1,8 @@
-date 参数是合法的日期表达式。expr 参数是您希望添加的时间间隔。
+1. DATE_ADD(date,INTERVAL expr type) 函数向日期添加指定的时间间隔
 
-DATE_ADD(date,INTERVAL expr type) 函数向日期添加指定的时间间隔
-DATE_SUB(date,INTERVAL expr type) 函数从日期减去指定的时间间隔
+2. DATE_SUB(date,INTERVAL expr type) 函数从日期减去指定的时间间隔
+
+   date 参数是合法的日期表达式。expr 参数是您希望添加的时间间隔。
 
 ```mysql
 DATE_ADD('2019-11-12',INTERVAL 10 MICROSECOND)   --增加10微秒
@@ -15,17 +16,17 @@ DATE_ADD('2019-11-12',INTERVAL 1 QUARTER) --增加3个月
 DATE_ADD('2019-11-12',INTERVAL 10 YEAR) --增加10个月
 ```
 
-date1 和 date2 参数是合法的日期或日期/时间表达式；只有值的日期部分参与计算。
+3. DATEDIFF(date1,date2) 函数返回两个日期之间的天数。
 
-DATEDIFF(date1,date2) 函数返回两个日期之间的天数。
+   date1 和 date2 参数是合法的日期或日期/时间表达式；只有值的日期部分参与计算。
 
 ```mysql
 SELECT DATEDIFF('2008-11-30','2008-11-28')  DiffDate;
 ```
 
-date 参数是合法的日期。format 规定日期/时间的输出格式。
+4. DATE_FORMAT(date,format) 函数用于以不同的格式显示日期/时间数据。
 
-DATE_FORMAT(date,format) 函数用于以不同的格式显示日期/时间数据。
+   date 参数是合法的日期。format 规定日期/时间的输出格式。
 
 ```mysql
 SELECT NOW() --返回当前的日期和时间
@@ -64,7 +65,7 @@ DATE_FORMAT(NOW(),'%X')  --年其中的星期日是周的第一天4位与%V使�
 DATE_FORMAT(NOW(),'%x')  --年其中的星期一是周的第一天4位与%v使用
 ```
 
-EXTRACT() 函数用于返回日期/时间的单独部分，比如年、月、日、小时、分钟等等。
+5. EXTRACT() 函数用于返回日期/时间的单独部分，比如年、月、日、小时、分钟等等。
 
 ```mysql
 EXTRACT(SECOND_MICROSECOND FROM NOW())   --获取秒到毫秒
@@ -80,21 +81,21 @@ EXTRACT(DAY_HOUR FROM NOW())                            --获取天到小时
 EXTRACT(YEAR_MONTH FROM NOW())                       --获取年到月
 ```
 
-CONCAT(str1,str2,…)  返回结果为连接参数产生的字符串。如有任何一个参数为NULL ，则返回值为 NULL。
+6. CONCAT(str1,str2,…)  返回结果为连接参数产生的字符串。如有任何一个参数为NULL ，则返回值为 NULL。
 
 ```mysql
 SELECT CONCAT('11','22','33'),CONCAT('11','22',NULL);
 ```
 
-CONCAT_WS(separator,str1,str2,...) 代表 CONCAT With separator，是CONCAT()的特殊形式。
-第一个参数是其它参数的分隔符。分隔符的位置放在要连接的两个字符串之间。
-分隔符可以是一个字符串，也可以是其它参数。
+7. CONCAT_WS(separator,str1,str2,...) 代表 CONCAT With separator，是CONCAT()的特殊形式。
+   第一个参数是其它参数的分隔符。分隔符的位置放在要连接的两个字符串之间。
+   分隔符可以是一个字符串，也可以是其它参数。
 
 ```mysql
 select concat_ws(',','11','22','33'),concat_ws(',','11','22',NULL),concat_ws(NULL,'11','22','33');
 ```
 
-group_concat([DISTINCT] 要连接的字段 [Order BY ASC/DESC 排序字段] [Separator '分隔符'])
+8. group_concat([DISTINCT] 要连接的字段 [Order BY ASC/DESC 排序字段] [Separator '分隔符'])
 
 ```mysql
 select w3cschool_author,
@@ -104,23 +105,23 @@ group_concat(w3cschool_title ORDER BY w3cschool_title ASC)
 from w3cschool_tbl group by w3cschool_author;
 ```
 
-repeat()函数,用来复制字符串
+9. repeat()函数,用来复制字符串
 
 ```mysql
 SELECT repeat('ab',2);
 ```
 
-str是被截取字段，length 截取长度, pos 从第几位开始截取，delim 关键字，count 关键字出现的次数
+10. left（str, length）从左开始截取字符串
 
-left（str, length）从左开始截取字符串
+11. right（str, length）从右开始截取字符串
 
-right（str, length）从右开始截取字符串
+12. substring（str, pos）截取字符串
 
-substring（str, pos）截取字符串
+13. substring（str, pos, length）截取字符串
 
-substring（str, pos, length）截取字符串
+14. substring_index（str,delim,count）按关键字截取字符串 
 
-substring_index（str,delim,count）按关键字截取字符串 
+    str是被截取字段，length 截取长度, pos 从第几位开始截取，delim 关键字，count 关键字出现的次数
 
 ```mysql
 SELECT LEFT('www.w3cschool.cn',10)
@@ -132,9 +133,9 @@ SELECT LEFT('www.w3cschool.cn',10)
 ,SUBSTRING_INDEX("www.w3cschool.cn",".",-2); 
 ```
 
-string为字符串；start为起始位置；length为长度。注意：mysql中的start是从1开始的。 
+15. substr(string string,num start,num length)
 
-substr(string string,num start,num length)
+    string为字符串；start为起始位置；length为长度。注意：mysql中的start是从1开始的。 
 
 ```mysql
 SELECT SUBSTR('www.w3cschool.cn',0,10)
@@ -142,42 +143,27 @@ SELECT SUBSTR('www.w3cschool.cn',0,10)
 ,SUBSTR('www.w3cschool.cn',10,10);
 ```
 
-数学函数
-ABS(X) 返回X的绝对值
-
-SIGN(X) 以 -1、0 或 1 方式返回参数的符号
-
-MOD(N,M) 返回 N 被 M 除后的余数
-
-FLOOR(X) 返回不大于 X 的最大整数值
-
- CEILING(X) 返回不小于 X 的最小整数
-
- ROUND(X) 返回参数 X 四舍五入到最近的整数
-
- ROUND(X,D) 返回一个数字四舍五入到 D 个小数
+16. ABS(X) 返回X的绝对值
+17. SIGN(X) 以 -1、0 或 1 方式返回参数的符号
+18. MOD(N,M) 返回 N 被 M 除后的余数
+19. FLOOR(X) 返回不大于 X 的最大整数值
+20.  CEILING(X) 返回不小于 X 的最小整数
+21.  ROUND(X) 返回参数 X 四舍五入到最近的整数
+22.  ROUND(X,D) 返回一个数字四舍五入到 D 个小数
 
 ```mysql
 SELECT -2,ABS(-9),SIGN(-5),MOD(234, 10),FLOOR(1.6),CEILING(1.1),ROUND(-1.58),ROUND(1.298, 1);
 ```
 
- DIV 整除
-
- EXP(X) 返回值 e (自然对数的底) 的 X 次方
-
- LN(X) 返回 X 的自然对数
-
- LOG(X)
-
- LOG(B,X) 如果以一个参数调用，它返回 X 的自然对数
-
- LOG2(X) 返回 X 的以 2 为底的对数
-
- LOG10(X) 返回 X 以 10 为底的对数
-
- POWER(X,Y) 返回 X 的 Y 幂
-
- SQRT(X)返回 X 的非否平方根
+23. DIV 整除
+24.  EXP(X) 返回值 e (自然对数的底) 的 X 次方
+25.  LN(X) 返回 X 的自然对数
+26.  LOG(X)
+27.  LOG(B,X) 如果以一个参数调用，它返回 X 的自然对数
+28.  LOG2(X) 返回 X 的以 2 为底的对数
+29.  LOG10(X) 返回 X 以 10 为底的对数
+30.  POWER(X,Y) 返回 X 的 Y 幂
+31.  SQRT(X)返回 X 的非否平方根
 
 ```mysql
 SELECT 5 DIV 2
@@ -191,21 +177,17 @@ SELECT 5 DIV 2
 ,SQRT(4);
 ```
 
- PI()返回 PI 值(圆周率)
-
- COS(X)返回 X 的余弦，在这里，X 以弧度给出
-
- SIN(X)返回 X 的正弦
-
- TAN(X)返回 X 的正切
+32. PI()返回 PI 值(圆周率)
+33.  COS(X)返回 X 的余弦，在这里，X 以弧度给出
+34.  SIN(X)返回 X 的正弦
+35.  TAN(X)返回 X 的正切
 
 ```mysql
 SELECT PI(),COS(PI()),SIN(PI()),TAN(PI()+1);
 ```
 
- RAND() 返回一个范围在 0 到 1.0 之间的随机浮点值
-
- RAND(N) N 被指定为种子值使用，用于产生一个可重复的数值
+36. RAND() 返回一个范围在 0 到 1.0 之间的随机浮点值
+37.  RAND(N) N 被指定为种子值使用，用于产生一个可重复的数值
 
 ```mysql
 SELECT RAND()
@@ -214,13 +196,10 @@ SELECT RAND()
 ,RAND(20);
 ```
 
- LEAST(X,Y,...) 有两个或更多个参数，返回最小(最小值)的参数
-
- GREATEST(X,Y,...)返回最大(最大值)参数
-
- DEGREES(X)将参数 X 从弧度转换为角度
-
- RADIANS(X)将参数 X 从角度转换为弧度
+38. LEAST(X,Y,...) 有两个或更多个参数，返回最小(最小值)的参数
+39.  GREATEST(X,Y,...) 返回最大(最大值)参数
+40.  DEGREES(X) 将参数 X 从弧度转换为角度
+41.  RADIANS(X)将参数 X 从角度转换为弧度
 
 ```mysql
 SELECT LEAST(2,0)
@@ -230,15 +209,15 @@ SELECT LEAST(2,0)
 ,RADIANS(90);
 ```
 
- TRUNCATE(X,D)将数值 X 截到 D 个小数，然后返回。
+42. TRUNCATE(X,D)将数值 X 截到 D 个小数，然后返回。
 
- 如果 D 为 0，结果将不包含小数点和小数部分; 如果 D 是负数，那么数字的整个部分被对准零位输出
+     如果 D 为 0，结果将不包含小数点和小数部分; 如果 D 是负数，那么数字的整个部分被对准零位输出
 
 ```mysql
 SELECT TRUNCATE(1.223,1),TRUNCATE(1.999,0),TRUNCATE(122,-2);
 ```
 
- 十进值小数在计算机中通常不以精确数字存储，而是双精度型的值
+十进值小数在计算机中通常不以精确数字存储，而是双精度型的值
 
 ```mysql
 SELECT TRUNCATE(10.28*100,0); --出现1027则是10.28 实际上是以某些像 10.2799999999999999 的形式被存储的
