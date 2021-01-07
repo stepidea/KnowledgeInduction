@@ -33,7 +33,7 @@ default-character-set=utf8mb4
 3. 配置path系统变量:D:\Program Files\mysql-8.0.19-winx64\bin 。
 4. 初始化并启动MySQL服务
 
-```
+```cmd
 mysqld --initialize --console  #初始化并记住随机生成的密码。
 
 mysqld --install   #安装MySQL服务
