@@ -17,3 +17,5 @@ Powershell中使用提升的特权，
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All（启动Hyper-V）;
 
 Enable-WindowsOptionalFeature -Online -FeatureName Containers -All（启动容器）。
+ 
+官网链接：https://docs.microsoft.com/zh-cn/windows/wsl/install-win10
